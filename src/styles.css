@@ -1,0 +1,300 @@
+@import "tailwindcss" source(none);
+@source "./";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --background: oklch(0.135 0.039 268);
+  --foreground: oklch(0.98 0.005 275);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.53 0.26 263);
+  --primary-foreground: oklch(0.98 0.005 275);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.62 0.025 277);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    margin: 0;
+    font-family: "Manrope", "Noto Color Emoji", sans-serif;
+    letter-spacing: 0;
+  }
+}
+
+/* The supplied artwork is the design; images retain their original proportions. */
+.portfolio-page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  padding: 80px 56px;
+  animation: page-fade 900ms ease both;
+}
+.page-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.page-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: page-fade 1200ms ease both;
+}
+.portfolio-layout {
+  width: 100%;
+  max-width: 1288px;
+  display: grid;
+  grid-template-columns: minmax(0, 424fr) minmax(0, 812fr);
+  gap: 64px;
+  align-items: start;
+}
+.profile { min-width: 0; }
+.profile-portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 424 / 660;
+  animation: fade-rise 760ms var(--ease-soft) both;
+}
+.profile-specialties {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--muted-foreground);
+  font-size: 18px;
+  line-height: 1.5;
+  animation: fade-rise 760ms var(--ease-soft) 140ms both;
+}
+.profile-title {
+  margin: 20px 0 24px;
+  font-size: 27px;
+  line-height: 1.35;
+  font-weight: 400;
+  animation: fade-rise 760ms var(--ease-soft) 240ms both;
+}
+.profile-title strong { font-weight: 800; }
+.profile-description {
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin: 0;
+  animation: fade-rise 760ms var(--ease-soft) 340ms both;
+}
+.portfolio-cards {
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+}
+.portfolio-card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 812 / 281;
+  border-radius: var(--radius);
+  outline-offset: 4px;
+  transition: transform 300ms var(--ease-soft), filter 300ms ease;
+}
+/* La entrada se anima en la imagen; el hover transforma el enlace, así no se pisan. */
+.portfolio-card picture { animation: fade-slide 780ms var(--ease-soft) both; }
+.portfolio-card:nth-child(1) picture { animation-delay: 180ms; }
+.portfolio-card:nth-child(2) picture { animation-delay: 320ms; }
+.portfolio-card:nth-child(3) picture { animation-delay: 460ms; }
+.portfolio-card picture, .portfolio-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.portfolio-card:focus-visible {
+  outline: 2px solid var(--primary);
+  transform: translateX(18px) scale(1.02);
+}
+@media (hover: hover) {
+  .portfolio-card:hover {
+    transform: translateX(18px) scale(1.02);
+    filter: brightness(1.08) drop-shadow(0 20px 34px rgb(0 0 0 / 55%));
+  }
+  .portfolio-card:active { transform: translateX(10px) scale(0.99); }
+}
+.mobile-consultation {
+  display: none;
+  animation: fade-rise 760ms var(--ease-soft) 420ms both;
+}
+@media (min-width: 761px) and (max-width: 1399px) {
+  .profile-title { font-size: 22px; }
+}
+@media (min-width: 761px) and (max-width: 1199px) {
+  .portfolio-layout { gap: 40px; }
+  .profile-title { font-size: 22px; margin: 18px 0; }
+  .profile-description { font-size: 17px; }
+  .profile-specialties { font-size: 14px; }
+}
+@media (max-width: 760px) {
+  .portfolio-page { align-items: flex-start; padding: 100px 16px 80px; }
+  .portfolio-layout { display: block; max-width: 440px; }
+  .profile-portrait { display: none; }
+  .profile-specialties { margin-top: 0; font-size: 14px; }
+  .profile-title { margin: 14px 0 18px; font-size: 20px; }
+  .profile-description { font-size: 16px; line-height: 1.3; text-align: justify; }
+  .mobile-consultation { display: block; margin: 32px 0; }
+  .mobile-consultation img { display: block; width: 100%; height: auto; aspect-ratio: 406 / 53; }
+  .portfolio-cards { gap: 8px; }
+  .portfolio-card { aspect-ratio: 413 / 143; }
+  .portfolio-card:active { transform: translateX(10px) scale(0.99); }
+}
+@media (max-width: 380px) {
+  .profile-title { font-size: 18px; }
+  .profile-description { font-size: 15px; }
+}
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-slide {
+  from { opacity: 0; transform: translateX(34px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page, .page-background img, .profile-portrait, .profile-specialties,
+  .profile-title, .profile-description, .mobile-consultation, .portfolio-card picture {
+    animation: none;
+  }
+  .portfolio-card { transition: none; }
+  .portfolio-card:hover, .portfolio-card:active, .portfolio-card:focus-visible {
+    transform: none;
+    filter: none;
+  }
+}
